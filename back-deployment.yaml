@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-tarjetas
+  labels:
+    app: api-tarjetas
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-tarjetas
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: api-tarjetas
+        tier: backend
+    spec:
+      containers:
+        - name: api-tarjetas
+          image: alejamarin/getting-started-back
+          ports:
+            - name: back-server
+              containerPort: 8080
+          env:
+            - name: MONGO_HOST
+              value: "mongo-db"
+            - name: MONGO_PORT
+              value: "27017"
+            - name: PORT
+              value: "8080"

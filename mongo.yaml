@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-db
+  labels:
+    app: mongo-db
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-db
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: mongo-db
+        tier: backend
+    spec:
+      containers:
+        - name: mongo-db
+          image: mongo
+          ports:
+            - name: db-server
+              containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: "mongoadmin"
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: "secret"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-db
+  labels:
+    app: mongo-db
+    tier: backend
+spec:
+  type: ClusterIP
+  ports:
+    - port: 27017
+      targetPort: db-server
+  selector:
+    app: mongo-db
+    tier: backend
