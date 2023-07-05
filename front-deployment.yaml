@@ -22,4 +22,4 @@ spec:
           image: alejamarin/getting-started-front
           ports:
             - name: http-server
-              containerPort: 3000
+              containerPort: 80

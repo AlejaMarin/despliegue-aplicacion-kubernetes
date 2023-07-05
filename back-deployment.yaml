@@ -22,11 +22,11 @@ spec:
           image: alejamarin/getting-started-back
           ports:
             - name: back-server
-              containerPort: 8080
+              containerPort: 3000
           env:
             - name: MONGO_HOST
               value: "mongo-db"
             - name: MONGO_PORT
               value: "27017"
             - name: PORT
-              value: "8080"
+              value: "3000"
