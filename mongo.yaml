@@ -23,11 +23,11 @@ spec:
           ports:
             - name: db-server
               containerPort: 27017
-          env:
-            - name: MONGO_INITDB_ROOT_USERNAME
-              value: "mongoadmin"
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              value: "secret"
+          # env:
+          #   - name: MONGO_INITDB_ROOT_USERNAME
+          #     value: "mongoadmin"
+          #   - name: MONGO_INITDB_ROOT_PASSWORD
+          #     value: "secret"
 ---
 apiVersion: v1
 kind: Service
