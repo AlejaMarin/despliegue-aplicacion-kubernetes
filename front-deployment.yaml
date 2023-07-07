@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
         - name: tarjetas
-          image: alejamarin/getting-started-front
+          image: alejamarin/gs-front
+          #image: adrabenchedh/dh-examen:front
           ports:
             - name: http-server
               containerPort: 80
